@@ -116,6 +116,7 @@
     <Compile Include="Assets\GameUI\SampleUnityUI\Scripts\ShowSliderValue.cs" />
     <Compile Include="Assets\GameUI\SampleUnityUI\Scripts\TiltWindow.cs" />
     <Compile Include="Assets\Scripts\brightness.cs" />
+    <Compile Include="Assets\Scripts\BrightSlide.cs" />
     <Compile Include="Assets\Scripts\LoadSceneOnClick.cs" />
     <Compile Include="Assets\Scripts\QuitOnClick.cs" />
     <Compile Include="Assets\Scripts\SelectOnClick.cs" />
