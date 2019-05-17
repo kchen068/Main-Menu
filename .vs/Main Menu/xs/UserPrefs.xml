@@ -5,7 +5,7 @@
       <File FileName="Assets/Scripts/QuitOnClick.cs" Line="17" Column="1" />
       <File FileName="Assets/Scripts/SelectOnClick.cs" Line="26" Column="10" />
       <File FileName="Assets/Scripts/SliderVolume.cs" Line="4" Column="1" />
-      <File FileName="Assets/Scripts/BrightSlide.cs" Line="23" Column="6" />
+      <File FileName="Assets/Scripts/BrightSlide.cs" Line="25" Column="1" />
       <File FileName="Assets/Scripts/brightness.cs" Line="12" Column="82" />
     </Files>
   </MonoDevelop.Ide.Workbench>
