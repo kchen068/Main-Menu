@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{5FD112D4-ABDF-0DA7-8AF9-8BF63F763B67}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BrightSlide.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LoadSceneOnClick.cs">
     <Files>
       <File FileName="Assets/Scripts/LoadSceneOnClick.cs" Line="4" Column="31" />
       <File FileName="Assets/Scripts/QuitOnClick.cs" Line="17" Column="1" />
