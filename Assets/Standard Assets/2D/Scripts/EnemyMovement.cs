@@ -58,26 +58,13 @@ public class EnemyMovement : MonoBehaviour
             return;
         }
         float player_x = player.transform.position.x;
-        
+        checkFace(player_x);
         if (Vector2.Distance(transform.position, player.transform.position) > 1)
         {
             Debug.Log("I am being called");
             nearPlayer = false;
-            if (player_x - transform.position.x < 0.0f)
-            {
-                if (FacingRight)
-                {
-                    Flip();
-                }
-            }
-            else
-            {
-                if (!FacingRight)
-                {
-                    Flip();
-                }
-            }
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, x_initial * .5f);
+            
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, x_initial * 1.5f);
             animator.SetFloat("Speed", Mathf.Abs(x_initial));
             //rigidbody2D.velocity = new Vector2(x_initial * 10.0f, rigidbody2D.velocity.y);
         }
@@ -112,7 +99,22 @@ public class EnemyMovement : MonoBehaviour
         //}
 
     }
-
+    private void checkFace(float player_x){
+        if (player_x - transform.position.x < 0.0f)
+            {
+                if (FacingRight)
+                {
+                    Flip();
+                }
+            }
+            else
+            {
+                if (!FacingRight)
+                {
+                    Flip();
+                }
+            }
+    }
     private void Flip()
     {
         // Switch the way the player is labelled as facing.

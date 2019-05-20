@@ -50,7 +50,7 @@ namespace UnityStandardAssets._2D
         }
 
 
-        public void Move(float move, bool crouch, bool jump)
+        public void Move(float move, bool crouch, bool jump, float staminaMultiplier)
         {
             //Debug.Log("I am here\n");
             // If crouching, check to see if the character can stand up
@@ -71,12 +71,13 @@ namespace UnityStandardAssets._2D
             {
                 // Reduce the speed if crouching by the crouchSpeed multiplier
                 move = (crouch ? move*m_CrouchSpeed : move);
-
+                move *= staminaMultiplier;
                 // The Speed animator parameter is set to the absolute value of the horizontal input.
                 m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
                 // Move the character
                 m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
+                //m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
 
                 // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !m_FacingRight)
@@ -97,7 +98,12 @@ namespace UnityStandardAssets._2D
                 // Add a vertical force to the player.
                 m_Grounded = false;
                 m_Anim.SetBool("Ground", false);
-                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                if (staminaMultiplier != 1.0f){
+                    m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * 0.5f));
+                }
+                else{
+                    m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                }
             }
         }
 

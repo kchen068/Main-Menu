@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBar : MonoBehaviour
+public class BarUpdater : MonoBehaviour
 {
     // Start is called before the first frame update
     private Transform bar;
