@@ -304,6 +304,11 @@ PrefabInstance:
       propertyPath: mask.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1645040566274509172, guid: 05d95d0d59336ee4ca076d6fa94a612e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87a2357765801c34292d6718d8b4d770, type: 3}
 --- !u!114 &277439024 stripped
@@ -330,7 +335,7 @@ GameObject:
   - component: {fileID: 831266066}
   - component: {fileID: 831266065}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -436,6 +441,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6554933260451485486, guid: afe1da54085b1447e9a6e026f0fdc4b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554933260451485486, guid: afe1da54085b1447e9a6e026f0fdc4b0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Respawn
+      objectReference: {fileID: 0}
     - target: {fileID: 6554933260451485480, guid: afe1da54085b1447e9a6e026f0fdc4b0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -444,7 +459,7 @@ PrefabInstance:
     - target: {fileID: 6554933260451485480, guid: afe1da54085b1447e9a6e026f0fdc4b0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5833862
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6554933260451485480, guid: afe1da54085b1447e9a6e026f0fdc4b0,
         type: 3}

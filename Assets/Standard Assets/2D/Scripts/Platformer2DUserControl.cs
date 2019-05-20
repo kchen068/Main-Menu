@@ -15,8 +15,9 @@ namespace UnityStandardAssets._2D
         public float attackRange;
         private int attackCooldown = 0;
         private Weapon weapons;
-        private bool test = false;
+        private bool test = true;
         private PlayerStamina stamina;
+        public GameObject bulletPrefab;
         private void Awake()
         {
             m_Character = GetComponent<PlatformerCharacter2D>();
@@ -25,6 +26,7 @@ namespace UnityStandardAssets._2D
             weapons.mask = this.mask;
             weapons.attackRange = this.attackRange;
             weapons.damage = 10;
+            weapons.bulletPrefab = this.bulletPrefab;
             stamina = (PlayerStamina) gameObject.GetComponent<PlayerStamina>();
             //healthBar = GameObject.Find("HealthBar");
             //health = 100;
@@ -62,7 +64,8 @@ namespace UnityStandardAssets._2D
             // Pass all parameters to the character control script.
             //stamina.reduceStamina(1);
             if (h != 0.0f && m_Jump){
-                stamina.reduceStamina(0.5f);
+                stamina.reduceStamina(1f);
+                Debug.Log("first branch");
             }
             else if (h != 0.0f){
                 stamina.reduceStamina(0.1f);

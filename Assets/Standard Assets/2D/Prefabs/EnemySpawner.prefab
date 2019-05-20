@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 622825694020411828}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2582215125547465062, guid: adebe425487ea4f9e925a290305b4a22, type: 3}
+  amountToSpawn: 0
 --- !u!61 &622825694020411828
 BoxCollider2D:
   m_ObjectHideFlags: 0

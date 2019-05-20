@@ -35,7 +35,10 @@ public class EnemySpawnerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Hello world");
+        //Debug.Log("Hello world");
+        if (collision.tag != "Player"){
+            return;
+        }
         spawnEnemy();
     }
 }

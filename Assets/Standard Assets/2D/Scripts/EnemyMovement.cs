@@ -64,7 +64,7 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("I am being called");
             nearPlayer = false;
             
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, x_initial * 1.5f);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, x_initial);
             animator.SetFloat("Speed", Mathf.Abs(x_initial));
             //rigidbody2D.velocity = new Vector2(x_initial * 10.0f, rigidbody2D.velocity.y);
         }
