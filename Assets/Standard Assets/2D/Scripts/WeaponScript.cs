@@ -14,6 +14,7 @@ public class WeaponScript : MonoBehaviour
     public int currentWeaponType = 1; //1 = sword, 2 =  knun, 3 = gun, 4 = shooting star
     public int damage;
     public GameObject bulletPrefab;
+    public GameObject shootingPrefab;
     public bool facingRight = true;
     private List<Sprite> weaponList;
     public Quaternion ogRotation;
@@ -55,14 +56,17 @@ public class WeaponScript : MonoBehaviour
             if (wait >= 0)
             {
                 wait -= 1;
-            }
-            else
-            {
-                if (currentWeaponType == 1 || currentWeaponType == 2)
+                if (wait <= 0)
                 {
-                    resetRotation();
+                    if (currentWeaponType == 1 || currentWeaponType == 2)
+                    {
+                        resetRotation();
+                    }
                 }
             }
+
+                
+            
         }
 
         if (weaponSwitch <= 0 && Input.GetKeyDown(KeyCode.S))
@@ -99,7 +103,8 @@ public class WeaponScript : MonoBehaviour
             offset *= -1;
         }
         var obj = Instantiate(bulletPrefab, new Vector2(this.transform.position.x + offset, this.transform.position.y), Quaternion.identity);
-        Debug.Log("i AM BEING CALLED");
+        //Debug.Log("i AM BEING CALLED");
+        SoundManagerScript.playSound("gunshot");
         obj.GetComponent<BulletMovement>().startMoving(facingRight);
         wait = attackCoolDown;
     }
@@ -119,7 +124,16 @@ public class WeaponScript : MonoBehaviour
 
     public void shootingStarAttack()
     {
-
+        float offset = 0.5f;
+        if (!facingRight)
+        {
+            offset *= -1;
+        }
+        var obj = Instantiate(shootingPrefab, new Vector2(this.transform.position.x + offset, this.transform.position.y), Quaternion.identity);
+        //Debug.Log("i AM BEING CALLED");
+        SoundManagerScript.playSound("throw");
+        obj.GetComponent<BulletMovement>().startMoving(facingRight);
+        wait = attackCoolDown;
     }
 
 
@@ -130,6 +144,7 @@ public class WeaponScript : MonoBehaviour
         for (int i = 0; i < enemiesToDamage.Length; ++i)
         {
             //Debug.Log(1000000000000);
+            SoundManagerScript.playSound("throw2");
             enemiesToDamage[i].GetComponent<EnemyHealth>().takeDamage(15);
         }
         wait = attackCoolDown;

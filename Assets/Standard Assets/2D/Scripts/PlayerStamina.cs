@@ -40,6 +40,6 @@ public class PlayerStamina : MonoBehaviour
         if (stamina > 100){
             stamina = 100;
         }
-        staminaBar.incrementBar(stamina / 100.0f);
+        staminaBar.incrementBar(add / 100.0f);
     } 
 }

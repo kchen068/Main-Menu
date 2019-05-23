@@ -67,6 +67,7 @@
     <Compile Include="Assets\Standard Assets\2D\Scripts\BulletMovement.cs" />
     <Compile Include="Assets\Standard Assets\2D\Scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\Standard Assets\2D\Scripts\CameraFollow.cs" />
+    <Compile Include="Assets\Standard Assets\2D\Scripts\DonutScript.cs" />
     <Compile Include="Assets\Standard Assets\2D\Scripts\EnemyHealth.cs" />
     <Compile Include="Assets\Standard Assets\2D\Scripts\EnemyMovement.cs" />
     <Compile Include="Assets\Standard Assets\2D\Scripts\EnemySpawnerScript.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Assets\Standard Assets\2D\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Standard Assets\2D\Scripts\PlayerStamina.cs" />
     <Compile Include="Assets\Standard Assets\2D\Scripts\Restarter.cs" />
+    <Compile Include="Assets\Standard Assets\2D\Scripts\SoundManagerScript.cs" />
     <Compile Include="Assets\Standard Assets\2D\Scripts\WeaponScript.cs" />
     <Compile Include="Assets\Standard Assets\Cameras\Scripts\AbstractTargetFollower.cs" />
     <Compile Include="Assets\Standard Assets\Cameras\Scripts\AutoCam.cs" />

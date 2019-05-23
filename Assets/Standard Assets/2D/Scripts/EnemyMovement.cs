@@ -24,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
     public LayerMask mask;
     public float attackRange;
     private bool nearPlayer = false;
+
     void Start()
     {
         x_initial = 1.0f;
@@ -36,6 +37,7 @@ public class EnemyMovement : MonoBehaviour
         player = GameObject.Find("CharacterRobotBoy");
         frameCount = 30;
         attackCooldown = 10;
+        //ogRotation = 
     }
 
     
@@ -137,7 +139,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 enemiesToDamage[i].GetComponent<PlayerHealth>().takeDamage(10);
             }
-            attackCooldown = 100;
+            attackCooldown = 20;
         }
         else
         {
