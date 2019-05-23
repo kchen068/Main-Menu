@@ -50,7 +50,7 @@ namespace UnityStandardAssets._2D
         }
 
 
-        public void Move(float move, bool crouch, bool jump, float staminaMultiplier)
+        public void Move(float move, bool crouch, bool jump, float staminaMultiplier, WeaponScript script )
         {
             //Debug.Log("I am here\n");
             // If crouching, check to see if the character can stand up
@@ -83,12 +83,14 @@ namespace UnityStandardAssets._2D
                 if (move > 0 && !m_FacingRight)
                 {
                     // ... flip the player.
+                    script.facingRight = true;
                     Flip();
                 }
                     // Otherwise if the input is moving the player left and the player is facing right...
                 else if (move < 0 && m_FacingRight)
                 {
                     // ... flip the player.
+                    script.facingRight = false;
                     Flip();
                 }
             }

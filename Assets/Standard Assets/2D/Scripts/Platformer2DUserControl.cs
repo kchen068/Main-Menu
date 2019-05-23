@@ -14,20 +14,21 @@ namespace UnityStandardAssets._2D
         public LayerMask mask;
         public float attackRange;
         private int attackCooldown = 0;
-        private Weapon weapons;
+        private WeaponScript weaponScript;
         private bool test = true;
         private PlayerStamina stamina;
         public GameObject bulletPrefab;
         private void Awake()
         {
             m_Character = GetComponent<PlatformerCharacter2D>();
-            weapons = new Weapon();
-            weapons.attackPos = this.attackPos;
-            weapons.mask = this.mask;
-            weapons.attackRange = this.attackRange;
-            weapons.damage = 10;
-            weapons.bulletPrefab = this.bulletPrefab;
+            // weapons = new Weapon();
+            // weapons.attackPos = this.attackPos;
+            // weapons.mask = this.mask;
+            // weapons.attackRange = this.attackRange;
+            // weapons.damage = 10;
+            // weapons.bulletPrefab = this.bulletPrefab;
             stamina = (PlayerStamina) gameObject.GetComponent<PlayerStamina>();
+            weaponScript = GameObject.Find("Weapon").GetComponent<WeaponScript>();
             //healthBar = GameObject.Find("HealthBar");
             //health = 100;
         }
@@ -49,7 +50,7 @@ namespace UnityStandardAssets._2D
         {
             //Debug.Log("Fixed update of platform 2d is called\n");
             // Read the inputs.
-            weapons.attack();
+            //weapons.attack();
             if (!test)
             {
                 Sprite mySword = (Sprite)Resources.Load("sword", typeof(Sprite));
@@ -73,7 +74,7 @@ namespace UnityStandardAssets._2D
             else if (m_Jump){
                 stamina.reduceStamina(0.1f);
             }
-            m_Character.Move(h, crouch, m_Jump, stamina.emptyStamina());
+            m_Character.Move(h, crouch, m_Jump, stamina.emptyStamina(), weaponScript);
             m_Jump = false;
         }
 

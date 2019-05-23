@@ -67,7 +67,7 @@
      <Compile Include="Assets\Standard Assets\2D\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Standard Assets\2D\Scripts\PlayerStamina.cs" />
      <Compile Include="Assets\Standard Assets\2D\Scripts\Restarter.cs" />
-     <Compile Include="Assets\Standard Assets\2D\Scripts\Weapon.cs" />
+     <Compile Include="Assets\Standard Assets\2D\Scripts\WeaponScript.cs" />
      <Compile Include="Assets\Standard Assets\Cameras\Scripts\AbstractTargetFollower.cs" />
      <Compile Include="Assets\Standard Assets\Cameras\Scripts\AutoCam.cs" />
      <Compile Include="Assets\Standard Assets\Cameras\Scripts\FreeLookCam.cs" />
