@@ -25,19 +25,20 @@ public class BulletMovement : MonoBehaviour
         if (!isMoving){
             return;
         }
-        //Debug.Log("I am being called----------");
+        Debug.Log(hitInfo.tag);
         if (hitInfo.tag == "Respawn"){
             return;
         }
         EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
         if (enemy != null){
-            enemy.takeDamage(100);
+            enemy.takeDamage(15);
         }
         
         Destroy(this.gameObject);
         
     }
     public void startMoving(bool face){
+        Debug.Log("BULLET");
          rb = GetComponent<Rigidbody2D>();
         if (face){
             rb.velocity = transform.right * bulletSpeed;
