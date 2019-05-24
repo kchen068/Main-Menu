@@ -9,6 +9,7 @@ public class BulletMovement : MonoBehaviour
     private Rigidbody2D rb;
     public float bulletSpeed = -1.0f;
     private bool isMoving = false;
+    public bool forPlayer = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,11 +30,23 @@ public class BulletMovement : MonoBehaviour
         if (hitInfo.tag == "Respawn"){
             return;
         }
-        EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
-        if (enemy != null){
-            enemy.takeDamage(15);
+        if (!forPlayer)
+        {
+            EnemyHealth enemy = hitInfo.GetComponent<EnemyHealth>();
+            if (enemy != null)
+            {
+                enemy.takeDamage(15);
+            }
         }
-        
+        else
+        {
+            PlayerHealth player = hitInfo.GetComponent<PlayerHealth>();
+            if (player != null)
+            {
+                player.takeDamage(15);
+            }
+        }
+
         Destroy(this.gameObject);
         
     }

@@ -19,6 +19,7 @@ public class AIMovement : MonoBehaviour
     public Quaternion ogRotation;
     public int weaponType = 1;
     public float distance = 1.5f;
+    //public GameObject bulletPrefrab;
     void Start()
     {
         attackPos = this.transform.GetChild(0);
@@ -28,12 +29,20 @@ public class AIMovement : MonoBehaviour
         {
             Debug.Log("STOOPPP");
         }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        attack();
+        if (weaponType == 1 || weaponType == 2)
+        {
+            attack();
+        }
+        else
+        {
+            gunAttack();
+        }
         if (frameSkip > 0)
         {
             --frameSkip;
@@ -86,6 +95,32 @@ public class AIMovement : MonoBehaviour
                 }
             }
 
+        }
+    }
+
+    private void gunAttack()
+    {
+        if (attackCooldown <= 0 && nearPlayer)
+        {
+            float offset = 0.5f;
+            if (!FacingRight)
+            {
+                offset *= -1;
+            }
+
+            GameObject bull = Resources.Load("Bullet", typeof(GameObject)) as GameObject;
+            //Instantiate(game, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+            //Destroy(this.gameObject);
+            var obj = Instantiate(bull, new Vector2(attackPos.transform.position.x + offset, attackPos.transform.position.y), Quaternion.identity);
+            Debug.Log("i AM BEING CALLED");
+            SoundManagerScript.playSound("gunshot");
+            obj.GetComponent<BulletMovement>().forPlayer = true;
+            obj.GetComponent<BulletMovement>().startMoving(FacingRight);
+            attackCooldown = waitBetweenAttack;
+        }
+        else
+        {
+            attackCooldown -= 1;
         }
     }
 
