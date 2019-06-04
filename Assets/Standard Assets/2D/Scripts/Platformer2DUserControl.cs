@@ -14,9 +14,21 @@ namespace UnityStandardAssets._2D
         public LayerMask mask;
         public float attackRange;
         private int attackCooldown = 0;
+        private WeaponScript weaponScript;
+        private bool test = true;
+        private PlayerStamina stamina;
+        public GameObject bulletPrefab;
         private void Awake()
         {
             m_Character = GetComponent<PlatformerCharacter2D>();
+            // weapons = new Weapon();
+            // weapons.attackPos = this.attackPos;
+            // weapons.mask = this.mask;
+            // weapons.attackRange = this.attackRange;
+            // weapons.damage = 10;
+            // weapons.bulletPrefab = this.bulletPrefab;
+            stamina = (PlayerStamina) gameObject.GetComponent<PlayerStamina>();
+            weaponScript = GameObject.Find("Weapon").GetComponent<WeaponScript>();
             //healthBar = GameObject.Find("HealthBar");
             //health = 100;
         }
@@ -38,24 +50,31 @@ namespace UnityStandardAssets._2D
         {
             //Debug.Log("Fixed update of platform 2d is called\n");
             // Read the inputs.
-            if (attackCooldown <=0 && Input.GetKey(KeyCode.Q))
+            //weapons.attack();
+            if (!test)
             {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, mask);
-                for (int i = 0; i < enemiesToDamage.Length; ++i)
-                {
-                    //Debug.Log(1000000000000);
-                    enemiesToDamage[i].GetComponent<EnemyHealth>().takeDamage(10);
-                }
-                attackCooldown = 10;
-            }
-            else
-            {
-                attackCooldown -= 1;
+                Sprite mySword = (Sprite)Resources.Load("sword", typeof(Sprite));
+                Vector3 currentScale = attackPos.localScale;
+                attackPos.GetComponent<SpriteRenderer>().sprite = mySword;
+                attackPos.localScale = currentScale;
+                Debug.Log(attackPos.GetComponent<SpriteRenderer>().sprite);
+                test = true;
             }
             bool crouch = Input.GetKey(KeyCode.LeftControl);
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             // Pass all parameters to the character control script.
-            m_Character.Move(h, crouch, m_Jump);
+            //stamina.reduceStamina(1);
+            if (h != 0.0f && m_Jump){
+                stamina.reduceStamina(1f);
+                Debug.Log("first branch");
+            }
+            else if (h != 0.0f){
+                stamina.reduceStamina(0.1f);
+            }
+            else if (m_Jump){
+                stamina.reduceStamina(0.1f);
+            }
+            m_Character.Move(h, crouch, m_Jump, stamina.emptyStamina(), weaponScript);
             m_Jump = false;
         }
 

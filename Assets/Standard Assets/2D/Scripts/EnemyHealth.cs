@@ -21,8 +21,11 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log("Taking damage");
         health -= damage;
+        SoundManagerScript.playSound("thud");
         if (health <= 0)
         {
+            GameObject game = Resources.Load("DonutDrop", typeof(GameObject)) as GameObject;
+            Instantiate(game, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
             Destroy(this.gameObject);
         }
     }

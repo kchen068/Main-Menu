@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     // Start is called before the first frame update
     public int health = 0;
-    public HealthBar healthBar;
+    public BarUpdater healthBar;
 
     void Start()
     {
