@@ -140,6 +140,7 @@ public class WeaponScript : MonoBehaviour
     public void swordAttack()
     {
         this.transform.Rotate(0.0f, 0.0f, -90.0f, Space.Self);
+       // transform.rotation = (Quaternion.Slerp());
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(this.transform.position, attackRange, mask);
         for (int i = 0; i < enemiesToDamage.Length; ++i)
         {
