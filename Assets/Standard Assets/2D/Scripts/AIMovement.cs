@@ -6,7 +6,7 @@ public class AIMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject player;
-    private bool FacingRight = true;
+    public bool FacingRight = false;
     private int frameSkip = 0;
     private int attackCooldown = 20;
     public int waitBetweenAttack = 20;
@@ -15,14 +15,14 @@ public class AIMovement : MonoBehaviour
     public float attackRange;
     private bool nearPlayer = false;
     public int damage = 10;
-    public float speed = 1.0f;
+    public float speed = 1.6f;
     public Quaternion ogRotation;
     public int weaponType = 1;
     public float distance = 1.5f;
     //public GameObject bulletPrefrab;
     void Start()
     {
-        attackPos = this.transform.GetChild(0);
+        //attackPos = this.transform.GetChild(0).GetChild(0).GetChild(0);
         player = GameObject.Find("CharacterRobotBoy");
         ogRotation = this.transform.rotation;
         if (player == null)
@@ -39,10 +39,11 @@ public class AIMovement : MonoBehaviour
         {
             attack();
         }
-        else
+        else if (weaponType == 3 || weaponType == 4)
         {
             gunAttack();
         }
+        
         if (frameSkip > 0)
         {
             --frameSkip;
@@ -73,7 +74,12 @@ public class AIMovement : MonoBehaviour
     {
         if (attackCooldown <= 0 && nearPlayer)
         {
-            attackPos.transform.Rotate(0.0f, 0.0f, -90.0f, Space.Self);
+            //attackPos.transform.Rotate(0.0f, 0.0f, -90.0f, Space.Self);
+            if (weaponType == 1)
+            {
+                Transform gameObject = this.transform.GetChild(0);
+                gameObject.transform.Rotate(0.0f, 0.0f, 90.0f, Space.Self);
+            }
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, mask);
             for (int i = 0; i < enemiesToDamage.Length; ++i)
             {
@@ -108,13 +114,25 @@ public class AIMovement : MonoBehaviour
                 offset *= -1;
             }
 
-            GameObject bull = Resources.Load("Bullet", typeof(GameObject)) as GameObject;
+            GameObject bull;
+            GameObject obj = null;
+            if (weaponType == 3)
+            {
+                bull = Resources.Load("Bullet", typeof(GameObject)) as GameObject;
+                obj = Instantiate(bull, new Vector2(attackPos.transform.position.x + offset, attackPos.transform.position.y), Quaternion.identity);
+            }
+            else
+            {
+                bull = Resources.Load("ShootingStar Variant", typeof(GameObject)) as GameObject;
+                obj = Instantiate(bull, new Vector2(attackPos.transform.position.x + offset, attackPos.transform.position.y), Quaternion.identity);
+            }
             //Instantiate(game, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
             //Destroy(this.gameObject);
-            var obj = Instantiate(bull, new Vector2(attackPos.transform.position.x + offset, attackPos.transform.position.y), Quaternion.identity);
+            //var obj = Instantiate(bull, new Vector2(attackPos.transform.position.x + offset,attackPos.transform.position.y), Quaternion.identity);
             Debug.Log("i AM BEING CALLED");
             SoundManagerScript.playSound("gunshot");
             obj.GetComponent<BulletMovement>().forPlayer = true;
+            obj.GetComponent<BulletMovement>().byEnemy = true;
             obj.GetComponent<BulletMovement>().startMoving(FacingRight);
             attackCooldown = waitBetweenAttack;
         }
@@ -184,6 +202,7 @@ public class AIMovement : MonoBehaviour
     //}
     public void resetRotation()
     {
-        attackPos.transform.rotation = Quaternion.Slerp(attackPos.transform.rotation, ogRotation, Time.time * 1.0f);
+        Transform gameObject = this.transform.GetChild(0);
+        gameObject.transform.rotation = Quaternion.Slerp(attackPos.transform.rotation, ogRotation, Time.time * 1.0f);
     }
 }

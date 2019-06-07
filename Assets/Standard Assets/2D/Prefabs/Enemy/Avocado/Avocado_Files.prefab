@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5103746961523988110}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2780361125828373263}
   - component: {fileID: 8063009663195123314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,9 +120,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8507671972656731084}
   - component: {fileID: 8866138526994218616}
-  m_Layer: 0
+  - component: {fileID: 8895611784454941730}
+  - component: {fileID: 6366435678888536930}
+  - component: {fileID: 2993550959892205354}
+  - component: {fileID: 4168964877362812215}
+  m_Layer: 8
   m_Name: Avocado_Files
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,6 +194,91 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &8895611784454941730
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6262773565727834371}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 3
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &6366435678888536930
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6262773565727834371}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.023218632, y: -0.4062959}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.48, y: 5.04}
+    newSize: {x: 6.48, y: 5.04}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.022355, y: 2.7879608}
+  m_EdgeRadius: 0
+--- !u!114 &2993550959892205354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6262773565727834371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e15332d13ae4a73bed8cc553acc83b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  FacingRight: 0
+  waitBetweenAttack: 30
+  attackPos: {fileID: 2780361125828373263}
+  mask:
+    serializedVersion: 2
+    m_Bits: 512
+  attackRange: 1
+  damage: 5
+  speed: 1
+  ogRotation: {x: 0, y: 0, z: 0, w: 0}
+  weaponType: 1
+  distance: 3
+--- !u!114 &4168964877362812215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6262773565727834371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a7996980d69402e908f068128e05b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &8185204780639821119
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7230767933524724355}
   - component: {fileID: 6872040282490486411}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Avocado_Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

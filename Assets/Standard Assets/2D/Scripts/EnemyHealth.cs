@@ -25,7 +25,11 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             GameObject game = Resources.Load("DonutDrop", typeof(GameObject)) as GameObject;
+            GameObject game2 = Resources.Load("AmmoDrop", typeof(GameObject)) as GameObject;
+            GameObject game3 = Resources.Load("StarDrop", typeof(GameObject)) as GameObject;
             Instantiate(game, new Vector2(this.transform.position.x, this.transform.position.y), Quaternion.identity);
+            Instantiate(game2, new Vector2(this.transform.position.x + 0.1f, this.transform.position.y), Quaternion.identity);
+            Instantiate(game3, new Vector2(this.transform.position.x + 0.3f, this.transform.position.y), Quaternion.identity);
             Destroy(this.gameObject);
         }
     }

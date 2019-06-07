@@ -5,6 +5,9 @@ using UnityEngine;
 public class DonutScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool isAmmo = false;
+    public bool isStar = false;
+    //public GameObject 
     void Start()
     {
         
@@ -22,9 +25,35 @@ public class DonutScript : MonoBehaviour
             return;
         }
         PlayerStamina ps = hitInfo.GetComponent<PlayerStamina>();
-        if (ps != null)
+        PlayerHealth ph = hitInfo.GetComponent<PlayerHealth>();
+        WeaponScript obj = hitInfo.GetComponentInChildren<WeaponScript>();
+        if (obj == null)
+        {
+            Debug.Log("O OOO");
+        }
+        if (ps != null && !isAmmo && !isStar)
         {
             ps.addStamina(10);
+
+        }
+        else if (obj != null && isAmmo)
+        {
+            Debug.Log("here i come");
+            int ammo = obj.ammo;
+            if (ammo != 5)
+            {
+                ++obj.ammo;
+                obj.ammoBar.incrementBar(20 / 100.0f);
+            }
+        }
+        else if (obj != null && isStar)
+        {
+            int ammo = obj.starammo;
+            if (ammo != 5)
+            {
+                ++obj.starammo;
+                obj.starBar.incrementBar(20 / 100.0f);
+            }
         }
 
         Destroy(this.gameObject);

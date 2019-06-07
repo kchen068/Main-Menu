@@ -18,6 +18,10 @@ public class WeaponScript : MonoBehaviour
     public bool facingRight = true;
     private List<Sprite> weaponList;
     public Quaternion ogRotation;
+    public int ammo = 5;
+    public int starammo = 5;
+    public BarUpdater ammoBar = null;
+    public BarUpdater starBar = null;
     void Start()
     {
         weaponList = new List<Sprite>();
@@ -42,11 +46,11 @@ public class WeaponScript : MonoBehaviour
             {
                 knunAttack();
             }
-            else if (currentWeaponType == 3)
+            else if (currentWeaponType == 3 && ammo > 0)
             {
                 gunAttack();
             }
-            else if (currentWeaponType == 4)
+            else if (currentWeaponType == 4 && starammo > 0)
             {
                 shootingStarAttack();
             }
@@ -97,6 +101,8 @@ public class WeaponScript : MonoBehaviour
     }
 
     public void gunAttack(){
+        --ammo;
+        ammoBar.decrementBar(20 / 100.0f);
         float offset = 0.5f;
         if (!facingRight)
         {
@@ -116,7 +122,7 @@ public class WeaponScript : MonoBehaviour
         for (int i = 0; i < enemiesToDamage.Length; ++i)
         {
             //Debug.Log(1000000000000);
-            enemiesToDamage[i].GetComponent<EnemyHealth>().takeDamage(10);
+            enemiesToDamage[i].GetComponent<EnemyHealth>().takeDamage(40);
         }
         wait = attackCoolDown;
         //this.transform.rotation = Quaternion.Slerp(this.transform.rotation, ogRotation, Time.time * 1.0f);
@@ -124,6 +130,8 @@ public class WeaponScript : MonoBehaviour
 
     public void shootingStarAttack()
     {
+        --starammo;
+        starBar.decrementBar(20 / 100.0f);
         float offset = 0.5f;
         if (!facingRight)
         {
@@ -146,7 +154,7 @@ public class WeaponScript : MonoBehaviour
         {
             //Debug.Log(1000000000000);
             SoundManagerScript.playSound("throw2");
-            enemiesToDamage[i].GetComponent<EnemyHealth>().takeDamage(15);
+            enemiesToDamage[i].GetComponent<EnemyHealth>().takeDamage(40);
         }
         wait = attackCoolDown;
         //this.transform.rotation = Quaternion.Slerp(this.transform.rotation, ogRotation, Time.time * 1.0f);
@@ -190,6 +198,7 @@ public class WeaponScript : MonoBehaviour
     {
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, ogRotation, Time.time * 1.0f);
     }
+
 
 
 }

@@ -7,17 +7,11 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: 
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/MainMenuScenes/MainMenu.unity
     guid: 94dcd2a9f40ce4d96a538e024ddcfaea
-  - enabled: 0
-    path: Assets/Scenes/MainMenuScenes/NewGameScene.unity
-    guid: 046337314846f45c5a7568379b6f8650
-  - enabled: 0
-    path: Assets/Scenes/MainMenuScenes/LoadGameScene.unity
-    guid: 3d0e3d075dc4d4d249e76340fbc9e65a
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenuScenes/SettingScene2.unity
     guid: 50f7681a3e63144d6923a4108c38abb4
   - enabled: 0
@@ -26,10 +20,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MainMenuScenes/AboutScene.unity
     guid: 49f360b016e434e578f0919d38ffd642
-  - enabled: 1
+  - enabled: 0
     path: Assets/FirstLevel.unity
     guid: 6fb80eea16c714cb5b4c13d65cf1441b
   - enabled: 1
+    path: Assets/First_Level.unity
+    guid: ce269cb9025d348088c9a0adc4f485cd
+  - enabled: 1
     path: Assets/Scenes/Levels/SecondLevel.unity
     guid: ce4e10e6fa3344e41906668f1c523060
+  - enabled: 1
+    path: Assets/Third_Level.unity
+    guid: 4c6f6a9e993d84641a3b66480aec324b
   m_configObjects: {}

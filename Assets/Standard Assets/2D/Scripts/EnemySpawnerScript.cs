@@ -26,9 +26,11 @@ public class EnemySpawnerScript : MonoBehaviour
     {
         if (!spawned)
         {
+            float offset = 0.0f;
             for (int i = 0; i < amountToSpawn; ++i)
             {
-                Instantiate(enemy, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                Instantiate(enemy, new Vector2(transform.position.x + offset, transform.position.y), Quaternion.identity);
+                offset += 0.2f;
             }
             spawned = true;
             mine.enabled = false;

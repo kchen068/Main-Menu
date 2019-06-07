@@ -29,14 +29,20 @@ namespace UnityStandardAssets._2D
             // weapons.bulletPrefab = this.bulletPrefab;
             stamina = (PlayerStamina) gameObject.GetComponent<PlayerStamina>();
             weaponScript = GameObject.Find("Weapon").GetComponent<WeaponScript>();
+            //Time.timeScale = 1.0f;
             //healthBar = GameObject.Find("HealthBar");
             //health = 100;
+            Debug.Log("I am awaked");
         }
 
 
         private void Update()
         {
             //Debug.Log("Update of platform is called\n");
+            if (Time.timeScale == 0.0f)
+            {
+                Time.timeScale = 1.0f;
+            }
             if (!m_Jump)
             {
                 // Read the jump input in Update so button presses aren't missed.
@@ -73,6 +79,10 @@ namespace UnityStandardAssets._2D
             }
             else if (m_Jump){
                 stamina.reduceStamina(0.1f);
+            }
+            else if (h == 0.0f)
+            {
+                stamina.addStamina(0.1f);
             }
             m_Character.Move(h, crouch, m_Jump, stamina.emptyStamina(), weaponScript);
             m_Jump = false;

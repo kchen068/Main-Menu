@@ -1,19 +1,26 @@
 ﻿<Properties StartupConfiguration="{00F9A619-08A7-529F-EF4C-58102B2A7FCF}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/2D/Scripts/EnemySpawnerScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs">
     <Files>
       <File FileName="Assets/Standard Assets/2D/Scripts/Camera2DFollow.cs" Line="14" Column="1" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/AIMovement.cs" Line="123" Column="33" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/WeaponScript.cs" Line="119" Column="32" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs" Line="59" Column="53" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/BulletMovement.cs" Line="46" Column="39" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/WeaponScript.cs" Line="157" Column="74" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/Platformer2DUserControl.cs" Line="85" Column="35" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/BulletMovement.cs" Line="37" Column="31" />
       <File FileName="Assets/Standard Assets/2D/Scripts/PlatformerCharacter2D.cs" Line="1" Column="1" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/EnemySpawnerScript.cs" Line="34" Column="34" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/DonutScript.cs" Line="27" Column="31" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/EnemySpawnerScript.cs" Line="29" Column="32" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/DonutScript.cs" Line="21" Column="54" />
       <File FileName="Assets/Standard Assets/2D/Scripts/PlayerStamina.cs" Line="42" Column="10" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/EnemyHealth.cs" Line="29" Column="38" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/EnemyHealth.cs" Line="29" Column="59" />
       <File FileName="Assets/Standard Assets/2D/Scripts/SoundManagerScript.cs" Line="44" Column="29" />
-      <File FileName="Assets/Standard Assets/2D/Scripts/BarUpdater.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/BarUpdater.cs" Line="38" Column="6" />
       <File FileName="Assets/Standard Assets/2D/Scripts/EnemyMovement.cs" Line="142" Column="32" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/PlayerHealth.cs" Line="31" Column="16" />
+      <File FileName="Assets/SaveObject.cs" Line="20" Column="9" />
+      <File FileName="Assets/Scripts/LoadSceneOnClick.cs" Line="19" Column="9" />
+      <File FileName="Assets/LoadMenuSceneOnClick.cs" Line="20" Column="74" />
+      <File FileName="Assets/Scripts/SliderVolume.cs" Line="10" Column="7" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/Restarter.cs" Line="1" Column="1" />
+      <File FileName="Assets/EndGameScript.cs" Line="9" Column="7" />
+      <File FileName="Assets/Standard Assets/2D/Scripts/CameraFollow.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,7 +31,7 @@
               <Node name="Standard Assets" expanded="True">
                 <Node name="2D" expanded="True">
                   <Node name="Scripts" expanded="True">
-                    <Node name="EnemySpawnerScript.cs" selected="True" />
+                    <Node name="Platformer2DUserControl.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>
